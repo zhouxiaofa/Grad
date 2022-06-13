@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <html>
+  <head>
+    <title> 简单的用户登录表单实现 </title>
+    <style type="text/css">
+      a{color: #000000;font-size: 24px;}
+      fieldset
+      {
+        margin:20px auto;
+        width:600px;
+        height:200px;
+        padding:20px;
+        color:#000000;
+        text-align:center;
+      }
+      legend
+      {
+        color:#000000;
+        font-size:24px;
+        font-weight:bold;
+        text-align:center;
+      }
+    </style>
+    <script type="text/javascript">
+      function checklogin()
+      {
+        var username=document.getElementById("myname").value;
+        var pwd=document.getElementById("mypwd").value;
+        if(username=="")
+        {
+          alert("用户名不能为空！！");
+          document.getElementById("myname").focus();
+          return false;
+        }
+        else
+        {
+          if(username.length<8||username.length>20)
+          {
+            alert("用户名太短，应在8~20个字符之间！！");
+            document.getElementById("myname").focus();
+            return false;
+          }
+        }
+        if (pwd=="")
+        {
+          alert("密码不能为空！！");
+          document.getElementById("mypwd").focus();
+          return false;
+        }
+        else
+        {
+          if(pwd.length<8||pwd.length>20)
+          {
+            alert("密码太短，应在6~20个字符之间！！");
+            document.getElementById("mypwd").focus();
+            return false;
+          }
+        }
+        return true;
+      }
+    </script>
+  </head>
+  </html>
+
+  <body>
+    <form name="loginform" method="post" action="error1.html" onsubmit="return checklogin()">
+      <fieldset>
+        <legend align="center">用户登录</legend>
+        <br><br>
+        <label>用户名</label>
+        <input type="text" name="" id="myname" ><br><br>
+        <label>密&nbsp;&nbsp;&nbsp;码</label>
+        <input type="password" name="" id="mypwd" ><br><br><br>
+        <input type="submit" value="提交">
+        <input type="reset">
+      </fieldset>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <style type="text/css">
+        body{
+            background-image: url("https://bpic.588ku.com/back_pic/05/95/06/725d46f469760ce.jpg");
+        }
+        #loginTitle{
+            margin: auto;
+        }
+    </style>
+
+    <script>
+        function check(){
+            name = document.getElementById("name").value;
+            password = document.getElementById("password").value;
+
+            if(name==""){
+                alert("请输入账号")
+            }else if(password==""){
+                alert("请输入密码")
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <br><div align="center"><h1>基于知识图谱的推荐系统</h1></div><br><br><br><br><br><br><br>
+
+    <div align="center">
+        <form action="/login" method="post" id="indexForm">
+            账号:<input type="text" name="name" id="name" placeholder="请输入账号"><br><br><br>
+            密码:<input type="password" name="password" id="password" placeholder="请输入密码"><br><br>
+<!--            密码:<input type="password" name="password" value="" pattern="^[a-zA-Z0-9]{6,18}$" oninvalid="setCustomValidity('输入正确密码')" placeholder="请输入密码"><br><br>-->
+            <input type="submit" name="submit" value="登录" onclick="check()">
+            <input type="reset" name="reset" value="取消">
+        </form>
+    </div><br>
+
+    <div align="center">
+        <a href="/register">没有账号?点击注册</a>
+    </div>
+
+</body>
+</html>

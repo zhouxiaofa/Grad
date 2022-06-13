@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>用户管理</title>
+    <style type="text/css">
+        /*body{*/
+        /*    background-image: url("https://th.bing.com/th/id/R.1dd260ac6d82c4ed32f71584d67c6b7b?rik=BJ0rpTsPPbMQYg&riu=http%3a%2f%2fn.sinaimg.cn%2fsinakd20114%2f30%2fw2048h1182%2f20200610%2f879a-iuvaazn8585459.jpg&ehk=mJtdSmCFOdhGdfxDbWyz3Cj8bqYPJ7h%2b%2f%2bVzSqLQXZg%3d&risl=&pid=ImgRaw&r=0");*/
+        /*}*/
+    </style>
+</head>
+
+<body>
+  <div th:align="center">
+    <h3>用户列表</h3>
+  </div><br><br>
+
+  <div th:each="user:${userList}">
+    <form action="/user/update" th:align="center" method="post">
+      ID:<input style="width: 3%;" readonly="readonly" type="text" name="id" th:value="${user.getId()}">
+      姓名:<input readonly="readonly" type="text" name="name" th:value="${user.getName()}"/>
+      密码:<input type="text" name="password" th:value="${user.getPassword()}"/>
+      是否已删除:<input style="width: 3%;" type="text" name="s_flag" th:value="${user.getS_flag()}">
+      <input type="submit" name="submit" value="修改"/>
+      <input type="submit" name="submit" value="删除"/>
+    </form>
+  </div><br><br>
+
+  <div>
+    <form action="/user/insert" th:align="center"  method="post">
+      姓名:<input type="text" name="name" value=""/>
+      密码:<input type="text" name="password" value=""/>
+      <input type="submit" name="submit_insert" value="增加"/>
+    </form>
+  </div><br><br>
+
+  <div th:align="center">
+    <a href="/admin">返回admin页面</a>
+  </div>
+
+</body>
+</html>

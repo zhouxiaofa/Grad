@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>API管理</title>
+    <style type="text/css">
+        /*body{*/
+        /*    !*background-image: url("https://www.rrppt.com/uploads/beijing/49411/img/picture.jpg");*!*/
+        /*    background-image: url("https://th.bing.com/th/id/R.1dd260ac6d82c4ed32f71584d67c6b7b?rik=BJ0rpTsPPbMQYg&riu=http%3a%2f%2fn.sinaimg.cn%2fsinakd20114%2f30%2fw2048h1182%2f20200610%2f879a-iuvaazn8585459.jpg&ehk=mJtdSmCFOdhGdfxDbWyz3Cj8bqYPJ7h%2b%2f%2bVzSqLQXZg%3d&risl=&pid=ImgRaw&r=0");*/
+        /*}*/
+    </style>
+</head>
+<body>
+    <div th:align="center">
+        <h3>API列表</h3>
+    </div><br><br>
+
+    <div th:each="api:${APIList}">
+        <form action="/API/API" th:align="center" method="post">
+            ID:<input readonly="readonly" style="width: 3%"type="text" name="id" th:value="${api.getId()}">
+            URL:<input style="width: 18%" type="text" name="api_url" th:value="${api.getApi_url()}">
+            说明:<input style="width: 18%" type="text" name="remark_detail" th:value="${api.getRemark_detail()}"/>
+            <input type="submit" name="submit" value="修改"/>
+            <input type="submit" name="submit" value="删除"/>
+        </form>
+    </div><br><br>
+
+    <div>
+        <form action="/API/insert" th:align="center" method="post">
+            URL:<input style="width: 20%" type="text" name="api_url" value=""/>
+            说明:<input style="width: 20%" type="text" name="remark_detail" value=""/>
+            <input type="submit" name="submit" value="增加"/>
+        </form>
+    </div><br><br>
+
+    <div th:align="center">
+        <a href="/admin">返回admin页面</a>
+    </div>
+</body>
+</html>

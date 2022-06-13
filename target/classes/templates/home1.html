@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>用户首页</title>
+    <style type="text/css">
+        /*body{*/
+        /*    background-image: url("https://th.bing.com/th/id/R.1dd260ac6d82c4ed32f71584d67c6b7b?rik=BJ0rpTsPPbMQYg&riu=http%3a%2f%2fn.sinaimg.cn%2fsinakd20114%2f30%2fw2048h1182%2f20200610%2f879a-iuvaazn8585459.jpg&ehk=mJtdSmCFOdhGdfxDbWyz3Cj8bqYPJ7h%2b%2f%2bVzSqLQXZg%3d&risl=&pid=ImgRaw&r=0");*/
+        /*}*/
+    </style>
+</head>
+
+<body>
+    <div th:align="center">
+        <h3>标准列表</h3>
+    </div><br>
+
+    <div th:each="standard:${standardList}">
+        <form action="/standard/standard" th:align="center" method="post">
+            ID:<input  style="width: 3%" type="text" name="id" th:value="${standard.getId()}">
+            标准ID:<input style="width: 8%;" type="text" name="standard_id" th:value="${standard.getStandard_id()}">
+            标准中文名称:<input style="width: 20%" type="text" name="standard_name_cn" th:value="${standard.getStandard_name_cn()}">
+            标准英文名称:<input style="width: 25%" type="text" name="standard_name_en" th:value="${standard.getStandard_name_en()}"/>
+            发布日期:<input style="width: 5%;" type="text" name="release_date" th:value="${standard.getRelease_date()}"/>
+            <input type="submit" name="submit" value="标准详情"/>
+        </form>
+    </div><br>
+
+    <div>
+        <form action="/standard/changePage" th:align="center" method="post">
+            <input type="submit" name="submit" value="上一页"/>
+            <input type="submit" name="submit" value="下一页"/>
+            <input style="width: 3%" type="text" name="lastID" th:value="${standardList.get(standardList.size()-1).getId()}">
+            <input type="submit" name="submit" value="跳转"/>
+        </form>
+    </div><br>
+
+    <div>
+        <form action="/standard/queryByFeature" th:align="center" method="post">
+            <input readonly="readonly" type="text" value="根据所属领域查看"/>
+            <select name="optFeature" style="width: 350px;font-size: 16px">
+                <option th:each="feature:${featureList}" th:text="${feature}"></option>
+            </select>
+            <input type="submit" name="submit" value="查询">
+        </form>
+    </div><br>
+
+    <div>
+        <form action="/standard/queryByComp" th:align="center" method="post">
+            <input readonly="readonly" type="text" value="根据主管部门查看"/>
+            <select name="optComp" style="width: 350px;font-size: 16px">
+                <option th:each="comp:${compList}" th:text="${comp}"></option>
+            </select>
+            <input type="submit" name="submit" value="查询">
+        </form>
+    </div><br>
+
+    <div>
+        <form action="/neo4j" th:align="center" method="post">
+            <input type="submit" name="submit" value="进入图谱">
+        </form>
+    </div><br>
+
+    <div th:align="center">
+        <a href="/index">返回登录</a>
+    </div>
+</body>
+</html>

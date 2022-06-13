@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+    .mytable{
+        table-layout: fixed;
+    }
+    .mytable th td{
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: 10%;
+    }
+    </style>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:align="center">
+        <h3>标准列表</h3>
+    </div><br><br>
+
+    <div th:each="standard:${standardList}">
+        <form th:align="center" method="post">
+            ID:<input readonly="readonly" style="width: 3%"type="text" name="id" th:value="${standard.getId()}">
+            标准中文名称:<input style="width: 18%" type="text" name="api_url" th:value="${standard.getStandard_name_cn()}">
+            标准英文名称:<input style="width: 18%" type="text" name="remark_detail" th:value="${standard.getStandard_name_en()}"/>
+            <input type="submit" name="submit" value="修改"/>
+            <input type="submit" name="submit" value="删除"/>
+        </form>
+    </div><br>
+
+    <div>
+        <form action="/standard/changePageAdmin" th:align="center" method="post">
+            <input type="submit" name="submit" value="上一页"/>
+            <input type="submit" name="submit" value="下一页"/>
+            <input style="width: 3%" type="text" name="lastID" th:value="${standardList.get(standardList.size()-1).getId()}">
+            <input type="submit" name="submit" value="跳转"/>
+        </form>
+    </div><br><br>
+
+    <div>
+        <form th:align="center" method="post">
+            ID:<input type="text" name="id" value="">
+            标准ID:<input type="text" name="standard_id" value="">
+            中文标准名称:<input type="text" name="standard_name_cn" value="">
+            英文标准名称:<input type="text" name="standard_name_en" value="">
+            标准分类:<input type="text" name="standard_class" value="">
+            标准状态:<input type="text" name="standard_state" value="">
+            是否采标:<input type="text" name="standard_adopt" value="">
+            标准特征:<input type="text" name="standard_feature" value="">
+            发布日期:<input type="text" name="release_date" value="">
+            实施日期:<input type="text" name="impl_date" value="">
+            中国标准分类号:<input type="text" name="CSS" value="">
+            国际标准分类号:<input type="text" name="ISS" value="">
+            主管部门:<input type="text" name="competent_department" value="">
+            归口单位:<input type="text" name="technical_comm" value="">
+            <input type="submit" name="submit" value="增加"/>
+        </form>
+    </div><br><br>
+
+    <div th:align="center">
+        <a href="/admin">返回admin页面</a>
+    </div>
+
+
+</div><br>
+
+    <div>
+        <form>
+            <table th:align="center" class="mytable">
+                <tr>
+                    <td>ID</td><td>中文标准名称</td><td>英文标准名称</td>
+                </tr>
+                <tr th:each="standard:${standardList}">
+                    <td>[[${standard.getId()}]]</td><td>[[${standard.getStandard_name_cn()}]]</td><td>[[${standard.getStandard_name_en()}]]</td>
+                </tr>
+            </table>
+        </form>
+
+    </div>
+</body>
+</html>

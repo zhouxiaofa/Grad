@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>标准详情</title>
+  <style type="text/css">
+    /*body{*/
+    /*  !*background-image: url("https://www.rrppt.com/uploads/beijing/49411/img/picture.jpg");*!*/
+    /*  background-image: url("https://th.bing.com/th/id/R.1dd260ac6d82c4ed32f71584d67c6b7b?rik=BJ0rpTsPPbMQYg&riu=http%3a%2f%2fn.sinaimg.cn%2fsinakd20114%2f30%2fw2048h1182%2f20200610%2f879a-iuvaazn8585459.jpg&ehk=mJtdSmCFOdhGdfxDbWyz3Cj8bqYPJ7h%2b%2f%2bVzSqLQXZg%3d&risl=&pid=ImgRaw&r=0");*/
+    /*}*/
+  </style>
+</head>
+
+<body>
+<div th:align="center">
+  <h3>标准修改页</h3>
+</div>
+
+<div th:align="center">
+  <form action="/standard/updateDetail" method="post">
+    ID:<input style="width: 3%;" readonly="readonly" type="text" name="id" th:value="${standardDetail.getId()}">
+    标准ID:<input style="width: 7%;" readonly="readonly" type="text" name="standard_id" th:value="${standardDetail.getStandard_id()}">
+    中文标准名称:<input style="width: 10%;" readonly="readonly" type="text" name="standard_name_cn" th:value="${standardDetail.getStandard_name_cn()}">
+    英文标准名称:<input type="text" readonly="readonly" name="standard_name_en" th:value="${standardDetail.getStandard_name_en()}"/>
+    标准分类:<input style="width: 7%;" type="text" name="standard_class" th:value="${standardDetail.getStandard_class()}">
+    标准特征:<input type="text" name="standard_feature" th:value="${standardDetail.getStandard_feature()}"/>
+    是否采标:<input style="width: 2%;" type="text" name="standard_adopt" th:value="${standardDetail.getStandard_adopt()}"><br><br>
+    标准状态:<input style="width: 3%;" type="text" name="standard_state" th:value="${standardDetail.getStandard_state()}">
+    发布日期:<input style="width: 5%;" type="text" name="release_date" th:value="${standardDetail.getRelease_date()}"/>
+    实施日期:<input style="width: 5%;" type="text" name="impl_date" th:value="${standardDetail.getImpl_date()}">
+    中国标准分类号:<input style="width: 3%;" type="text" name="CSS" th:value="${standardDetail.getCss()}">
+    国际标准分类号:<input style="width: 7%;" type="text" name="ISS" th:value="${standardDetail.getIss()}">
+    主管部门:<input type="text" name="competent_department" th:value="${standardDetail.getCompetent_department()}"/>
+    归口单位:<input type="text" name="technical_comm" th:value="${standardDetail.getTechnical_comm()}"/><br><br>
+    <input type="submit" name="submit" value="修改">
+    <input type="submit" name="submit" value="返回标准管理页">
+  </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>专利详情</title>
+    <style type="text/css">
+      /*body{*/
+      /*  !*background-image: url("https://www.rrppt.com/uploads/beijing/49411/img/picture.jpg");*!*/
+      /*  background-image: url("https://th.bing.com/th/id/R.1dd260ac6d82c4ed32f71584d67c6b7b?rik=BJ0rpTsPPbMQYg&riu=http%3a%2f%2fn.sinaimg.cn%2fsinakd20114%2f30%2fw2048h1182%2f20200610%2f879a-iuvaazn8585459.jpg&ehk=mJtdSmCFOdhGdfxDbWyz3Cj8bqYPJ7h%2b%2f%2bVzSqLQXZg%3d&risl=&pid=ImgRaw&r=0");*/
+      /*}*/
+    </style>
+</head>
+<body>
+  <div th:align="center">
+    <h3>详细信息</h3>
+  </div><br>
+
+  <div th:align="center">
+    ID:<input type="text" name="id" th:value="${ipcDetail.getId()}"/>
+    名称:<input style="width: 25%" type="text" name="title" th:value="${ipcDetail.getTitle()}"/>
+    申请人:<input type="text" name="applicant" th:value="${ipcDetail.getAppApplication()}"/>
+    申请日:<input type="text" name="appDate" th:value="${ipcDetail.getAppDate()}">
+    申请号:<input type="text" name="appid" th:value="${ipcDetail.getAppid()}"/><br><br>
+    IPC分类号:<input type="text" name="mainIpc3" th:value="${ipcDetail.getMainIpc3()}"/>
+    公开(公告)日:<input type="text" name="pubDate" th:value="${ipcDetail.getPubDate()}">
+    公开(公告)号:<input type="text" name="pubid" th:value="${ipcDetail.getPubid()}"/>
+<!--      applicantType:<input type="text" name="applicantType" th:value="${ipcDetail.getAppApplicationType()}"/>-->
+<!--      claimsCount:<input type="text" name="claimsCount" th:value="${ipcDetail.getClaimsCount()}"><br><br>-->
+    发明人:<input style="width: 29%" type="text" name="claimsCount" th:value="${ipcDetail.getInventorList()}"><br><br>
+  </div>
+  <div align="center">
+    说明:<textarea style="width: 83%" rows="12" name="claimsList" th:text="${ipcDetail.getClaimsList()}"></textarea><br><br>
+    摘要:<textarea style="width: 83%" rows="6" name="abst" th:text="${ipcDetail.getAbst()}"></textarea><br>
+  </div>
+</body>
+</html>

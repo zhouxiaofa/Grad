@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    name: grad_pro_1
+    username: root
+    password: 125728
+    url: jdbc:mysql://localhost:3306/grad_pro_1
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+#mybatis:
+#  mapper-locations: :mapper/Mapper*.xml
+#  type-aliases-package: com.example.grad.bean
+
+
